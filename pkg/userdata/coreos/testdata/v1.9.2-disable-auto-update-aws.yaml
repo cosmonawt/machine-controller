@@ -119,6 +119,8 @@ systemd:
           --lock-file=/tmp/kubelet.lock \
           --pod-infra-container-image=
         ExecStop=-/usr/bin/rkt stop --uuid-file=/var/cache/kubelet-pod.uuid
+        Restart=always
+        RestartSec=10
         [Install]
         WantedBy=multi-user.target
 
